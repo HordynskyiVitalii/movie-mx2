@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'RockStar';
+	src: url('../fonts/rockstar.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/rockstar.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/rockstar.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/rockstar.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/rockstar.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/rockstar.svg#rockstar') format('svg'); /* Chrome < 4, Legacy iOS */
+}
