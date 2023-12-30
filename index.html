@@ -59,10 +59,12 @@
     </header>
     <main>
         <section class="section_hero">
-            <img class="hero_img" src="./images/Rectangle 32.jpg" alt="Header Image">
+            <div class="hero_video">
+                <video class="hero_video" poster="/images/Rectangle 32.jpg" controls src="./images/Эту Песню Лучше Не Включать Будете Петь Весь День Стелла Джанни Черемшина.mp4"></video>
+            </div>
             <div class="hero_icons_play">
                 <button type="button" id="buttonPlay" class="section_hero_btn">
-                            <svg class="icon_play_bxs" height="84.521" width="84.521">
+                            <svg class="icon_play_bxs" height="84.521" width="84.521"> 
                                 <use href="./images/icons.svg#icon-bxs"></use>
                             </svg>
                 </button>
@@ -119,7 +121,7 @@
             </div>
         </section>
         <section class="sectoin_two">
-            <!-- <img class="section_two_image" src="./images/Mask group.png" alt=""> -->
+            <img class="section_two_image" src="./images/Mask group.png" alt="">
         <div class="section_two_content">
             <h1 class="section_two_title">ABOUT MOVIE<span class="section_two_title-mx">MX</span></h1>
             <div class="section_two_text_item">
@@ -166,8 +168,89 @@
             </div>
         </div>
         </section>
+        <section class="sectoin_three">
+            <div class="section_three_content">
+                <h1 class="section_three_title">FOUNDER</h1>
+                <div class="section_three_line"></div>
+                <div class="secnion_three_item">
+                    <p class="section_three_text">Alex Agrasanchez boasts over 40 years of executive experience in the TV and Film industry,
+                    demonstrating expertise in Television, Programming acquisitions,
+                    TV & Film Production, Business development, and Distribution. <br><br>His proficiency extends to strategic negotiations, film production, acquisitions, and sales. In 1985, 
+                    he assumed control of Cine Virgo following his late brother Rene, 
+                    embarking on the production of successful Spanish and English-speaking films. Establishing Movie Mx International, Inc. 
+                    in 1992, Agrasanchez helmed his own distribution company, 
+                    specializing in aiding enterprises in acquiring rights to classic films and effectively monetizing content in both standard and digital eras. 
+                    His initiatives resulted in numerous multi-million-dollar licenses globally.
+                    </p>
+                  <img class="section_three_image" src="./images/Фото.png" alt="">
+                </div>
+            </div>
+        </section>
     </main>
-    <!-- <script src="./js/index.js"></script> -->
+    <footer class="footer">
+        <!-- <img class="footer_image" src="./images/pngegg 2.png" alt=""> -->
+        <h1 class="footer_title">Contact</h1>
+        <div class="footer_icons_right">
+            <svg class="footer_icon_vector">
+                <use href="./images/icons.svg#icon-Vector-top"></use>
+            </svg>
+            <svg class="footer_icon_vector">
+                <use href="./images/icons.svg#icon-Vector-top"></use>
+            </svg>
+            <p class="footer_icons_vector_text">up</p>
+        </div>
+        <div class="footer_form">
+            <form action="#" id="form" method="post" class="form-body">
+                <div class="name_container">
+                    <label for="formName" class="form_lable _error">Name<span class="lable_star">*</span></label>
+                    <input id="formName" name="name" class="form_input _req" type="text">
+                    <div class="form_line"></div>
+                </div>
+                <div class="email_container">
+                    <label for="formEmail" class="form_lable _error">E-mail<span class="lable_star">*</span></label>
+                    <input id="formEmail" class="form_input _req _email" type="text">
+                    <div class="form_line"></div>
+                </div>
+                <div class="phone_container">
+                    <label for="formPhone" class="form_lable">Phone</label>
+                    <input id="formPhone" class="form_input phone" type="text">
+                    <div class="form_line"></div>
+                </div>
+                <div class="message_container">
+                    <label for="formMessage" class="form_lable">Message</label>
+                    <textarea name="message" class="form_input message" id="formMessage"></textarea>
+                    <div class="form_line"></div>
+                </div>    
+                <div class="checkbox_container">
+                    <input id="formAgreement" class="input_checkbox _req _error" checked type="checkbox" name="agreement">
+                    <label for="formAgreement" class="input_checkbox_text">I would like to receive the newsletter.</label>
+                </div>
+                <button class="footer_buttom" type="submit" id="myButtom">Submit</button>
+            </form>
+        </div>
+        <div class="footer_contacts">
+            <ul class="footer_icons_soc">
+                <li class="footer_icon_background">
+                    <svg class="icon_linkedin" height="31.111" width="31.111">
+                        <use href="./images/icons.svg#icon-ri_linkedin"></use>
+                    </svg>
+                </li>
+                <li class="footer_icon_background">
+                    <svg class="icon_twitter" height="27.22" width="27.22">
+                        <use href="./images/icons.svg#icon-x-twitter"></use>
+                    </svg>
+                </li>
+            </ul>
+        </div>
+        <div class="footer_mailco">
+            <p class="footer_contacts_text">© 2023 MOVIE MEX INTERNATIONAL, INC.</p>
+            <svg class="footer_icon_mailco" height="24" width="30">
+                <use href="./images/icons.svg#icon-Email"></use>
+            </svg>
+            <p class="footer_text_mailco">alejandro@moviemexusa.com</p>
+        </div>
+    </footer>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

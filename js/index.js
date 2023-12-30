@@ -1,75 +1,49 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('form');
-form.addEventListener('submit', formSend);
+function validateForm() {
+    // Reset errors
+    document.getElementById('nameError').innerHTML = '';
+    document.getElementById('emailError').innerHTML = '';
+    document.getElementById('agreementError').innerHTML = '';
 
-async function formSend(e) {
-    e.preventDefault();
-
-    let error = formValidate(form);
-
-    let formData = new FormData(form);
-
-    if(error === 0) {
-        form.classList.add('_sending');
-        let response = await fetch('sendmail.php', {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-        });
-        if (response.ok) {
-            let result = await response.json();
-            alert(result.message);
-
-            document.getElementById('formAgreement').checked = false;
-            
-            formPreview.innerHTML = '';
-            form.reset();
-        } else {
-            alert("Error")
-        }
-    } else {
-        alert('Fill in the required fields*')
-    }
-}
-
-function formValidate(form) {
     let error = 0;
-    let formReq = document.querySelectorAll('._req');
 
-    for (let index = 0; index < formReq.length; index++) {
-        const input = formReq[index];
-        formRemoveError(input);
-
-        if (input.classList.contains('_email')) {
-            if (_emailTest(input)) {
-                formAddError(input);
-                error++;
-            }
-        } else if (input.getAttribute("type") === "checkbox" && input.checked === false) {
-            formAddError(input);
-            error++;
-        } else {
-            if (input.value === '') {
-                formAddError(input);
-                error++;
-            }
-        }
+    // Validate name
+    let nameInput = document.getElementById('formName');
+    if (nameInput.value.trim() === '') {
+        document.getElementById('nameError').innerHTML = 'Name is required';
+        nameInput.classList.add('_error');
+        error++;
+    } else {
+        nameInput.classList.remove('_error');
     }
-    return error;
+
+    // Validate email
+    let emailInput = document.getElementById('formEmail');
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(emailInput.value.trim())) {
+        document.getElementById('emailError').innerHTML = 'Invalid email';
+        emailInput.classList.add('_error');
+        error++;
+    } else {
+        emailInput.classList.remove('_error');
+    }
+
+    // Validate agreement
+    let agreementInput = document.getElementById('formAgreement');
+    if (!agreementInput.checked) {
+        document.getElementById('agreementError').innerHTML = 'You must agree to the terms';
+        agreementInput.classList.add('_error');
+        error++;
+    } else {
+        agreementInput.classList.remove('_error');
+    }
+
+    if (error === 0) {
+        // Form is valid, you can submit it or perform additional actions
+        alert('Form submitted successfully!');
+    } else {
+        // Form has errors, do not submit
+        alert('Please fix the errors before submitting');
+    }
 }
-function formAddError(input) {
-    input.parentElement.classList.add('_error');
-    input.classList.add('_error');
-}
-function formAddError(input) {
-    input.parentElement.classList.add('_error');
-    input.classList.add('_error');
-}
-function formRemoveError(input) {
-    input.parentElement.classList.remove('_error');
-    input.classList.remove('_error');
-}
-function _emailTest(input) {
-    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-}
-});
+
+
+
