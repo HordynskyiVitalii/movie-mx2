@@ -24,6 +24,7 @@ ul {
     position: relative;
     padding-left: 8.6%;
     padding-right: 8.6%;
+    z-index: 1;
 }
 
 .header_logo_icon {
@@ -71,7 +72,7 @@ ul {
     cursor: pointer;
     margin-left: 107px;
     margin-top: 51px;
-    padding-left: 20px;
+    padding-left: 10px;
     width: 165px;
     height: 35px;
     flex-shrink: 0;
