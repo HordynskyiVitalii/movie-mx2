@@ -24,3 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         playButton.style.opacity = 1;
     });
 });
+
+$(document).ready(function () {
+    $('#formMessage').on('input', function () {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight + 2) + 'px';
+    });
+});
+
