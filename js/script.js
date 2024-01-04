@@ -1,32 +1,31 @@
-// jQuery(document).ready(function () {
-     
-//      $(".phone").mask("+ 999-999-999-999"); 
-    
-   
-//     jQuery('.send-form').click( function() {
-//     	var form = jQuery(this).closest('form');
-    	
-//     	if ( form.valid() ) {
-//     		form.css('opacity','.5');
-//     		var actUrl = form.attr('action');
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
-//     		jQuery.ajax({
-//     			url: actUrl,
-//     			type: 'post',
-//     			dataType: 'html',
-//     			data: form.serialize(),
-//     			success: function(data) {
-//     				form.html(data);
-//     				form.css('opacity','1');
-//                     //form.find('.status').html('форма отправлена успешно');
-//                     //$('#myModal').modal('show') // для бутстрапа
-//     			},
-//     			error:	 function() {
-//     			     form.find('.status').html('серверная ошибка');
-//     			}
-//     		});
-//     	}
-//     });
+function ContactForm() {
+  const [state, handleSubmit] = useForm("xayrwrdo");
+  
+  if (state.succeeded) {
+    return <p>Thanks for joining!</p>;
+  }
 
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="email">Email Address</label>
+      <input id="email" type="email" name="email" />
+      <ValidationError prefix="Email" field="email" errors={state.errors} />
+      
+      <textarea id="message" name="message" />
+      <ValidationError prefix="Message" field="message" errors={state.errors} />
+      
+      <button type="submit" disabled={state.submitting}>
+        Submit
+      </button>
+    </form>
+  );
+}
 
-// });
+function App() {
+  return <ContactForm />;
+}
+
+export default App;
